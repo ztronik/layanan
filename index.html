@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Z-TRONIK</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Latar belakang gradasi hijau yang lembut dan modern */
+            background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15); /* Bayangan dengan hint hijau */
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            
+            /* Efek Pop-up saat halaman dimuat */
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            animation: popUpEffect 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            font-size: 24px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        h1 span {
+            color: #059669; /* Hijau zamrud untuk teks highlight */
+        }
+        
+        p {
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #a7f3d0;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        
+        select:focus {
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+        }
+        
+        .btn-masuk {
+            display: none;
+            width: 100%;
+            padding: 14px;
+            background-color: #059669; /* Hijau utama untuk tombol */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .btn-masuk:hover {
+            background-color: #047857; /* Hijau lebih gelap saat di-hover */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3);
+        }
+        
+        /* Pembatas / Garis */
+        .divider {
+            height: 1px;
+            background-color: #e5e7eb;
+            margin: 30px 0;
+        }
+
+        /* Bagian Saweria */
+        .saweria-box p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .btn-saweria {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: #E2B02A; 
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .btn-saweria:hover {
+            background-color: #c79a24;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(226, 176, 42, 0.3);
+        }
+
+        /* Copyright dalam Bahasa Inggris */
+        .copyright {
+            margin-top: 25px;
+            color: #065f46; /* Hijau gelap agar menyatu dengan background */
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Definisi Animasi Pop-up Container */
+        @keyframes popUpEffect {
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        /* Definisi Animasi Tombol Muncul */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>SELAMAT DATANG DI<br><span>LAYANAN Z-TRONIK</span></h1>
+    <p>Platform pembuatan template otomatis yang cepat dan praktis. Silakan pilih jenis template yang ingin Anda buat di bawah ini:</p>
+
+    <select id="menuPilihan" onchange="cekPilihan()">
+        <option value="" disabled selected>-- Pilih Jenis Template --</option>
+        <option value="bpjs-kes">Template BPJS Kesehatan</option>
+        <option value="bpjs-ket">Template BPJS Ketenagakerjaan</option>
+        <option value="npwp">Template NPWP</option>
+    </select>
+
+    <button id="tombolMasuk" class="btn-masuk" onclick="redirectKeLink()">
+        Buka Template Sekarang
+    </button>
+
+    <div class="divider"></div>
+
+    <div class="saweria-box">
+        <p>Apakah layanan ini membantu pekerjaan Anda? Dukung Z-TRONIK agar tetap gratis dan terus menghadirkan template baru. Traktir kami kopi agar makin semangat coding! ☕</p>
+        <a href="https://saweria.co/username_anda" target="_blank" class="btn-saweria">
+            💛 Support via Saweria
+        </a>
+    </div>
+</div>
+
+<div class="copyright">
+    &copy; 2026 Z-TRONIK. All rights reserved.
+</div>
+
+<script>
+    function cekPilihan() {
+        const select = document.getElementById("menuPilihan");
+        const tombol = document.getElementById("tombolMasuk");
+        
+        if (select.value !== "") {
+            tombol.style.display = "block";
+        }
+    }
+
+    function redirectKeLink() {
+        const pilihan = document.getElementById("menuPilihan").value;
+        let urlTujuan = "";
+
+        // GANTI LINK DI BAWAH INI DENGAN LINK WEB ANDA
+        if (pilihan === "bpjs-kes") {
+            urlTujuan = "https://ztronik.github.io/bpjskes"; 
+        } else if (pilihan === "bpjs-ket") {
+            urlTujuan = "https://ztronik.github.io/error"; 
+        } else if (pilihan === "npwp") {
+            urlTujuan = "https://ztronik.github.io/error"; 
+        }
+
+        if (urlTujuan !== "") {
+            window.location.href = urlTujuan;
+        }
+    }
+</script>
+
+</body>
+</html>
