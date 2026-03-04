@@ -51,6 +51,10 @@
             line-height: 1.5;
             font-size: 15px;
         }
+
+        strong {
+            color: #047857;
+        }
         
         select {
             width: 100%;
@@ -69,6 +73,16 @@
         select:focus {
             border-color: #059669;
             box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+        }
+
+        optgroup {
+            font-weight: bold;
+            color: #059669;
+        }
+
+        option {
+            color: #333;
+            font-weight: normal;
         }
         
         .btn-masuk {
@@ -152,26 +166,38 @@
 <body>
 
 <div class="container">
-    <h1>SELAMAT DATANG DI<br><span>LAYANAN Z-TRONIK</span></h1>
-    <p>Platform pembuatan template otomatis yang cepat dan praktis. Silakan pilih jenis template yang ingin Anda buat di bawah ini:</p>
+    <h1>Solusi Praktis Bisnis Anda<br><span>Z-TRONIK</span></h1>
+    
+    <!-- Teks deskripsi dirombak agar lebih menjual dan profesional -->
+    <p>Hemat waktu dan tenaga! Kami menghadirkan <strong>Template Instan Siap Pakai</strong> (cukup isi form, langsung unduh) serta <strong>Web Pendukung Usaha</strong> untuk mendongkrak profesionalitas bisnis Anda. Silakan pilih layanan unggulan kami di bawah ini:</p>
 
     <select id="menuPilihan" onchange="cekPilihan()">
-        <option value="" disabled selected>-- Pilih Jenis Template --</option>
-        <option value="bpjs-kes">Template BPJS Kesehatan</option>
-        <option value="bpjs-ket">Template BPJS Ketenagakerjaan</option>
-        <option value="npwp">Template NPWP</option>
+        <option value="" disabled selected>-- Pilih Layanan yang Dibutuhkan --</option>
+        
+        <!-- Kategori 1: Template -->
+        <optgroup label="📂 Template Instan Siap Pakai">
+            <option value="bpjs-kes">Cetak Template BPJS Kesehatan</option>
+            <option value="bpjs-ket">Cetak Template BPJS Ketenagakerjaan</option>
+            <option value="npwp">Cetak Template NPWP</option>
+        </optgroup>
+
+        <!-- Kategori 2: Web Pendukung Usaha -->
+        <optgroup label="🚀 Web Pendukung Usaha">
+            <option value="poin-member">Sistem Web Poin Member</option>
+        </optgroup>
     </select>
 
+    <!-- Tulisan tombol diubah agar lebih mengajak bertindak (Call to Action) -->
     <button id="tombolMasuk" class="btn-masuk" onclick="redirectKeLink()">
-        Buka Template Sekarang
+        🚀 Mulai Gunakan Sekarang
     </button>
 
     <div class="divider"></div>
 
     <div class="saweria-box">
-        <p>Apakah layanan ini membantu pekerjaan Anda? Dukung kami agar tetap gratis dan terus menghadirkan template baru. Traktir kami susu agar makin semangat membuat template lainnya!</p>
+        <p>Terbantu dengan layanan kami? Dukung terus Z-TRONIK agar selalu bisa menghadirkan fitur gratis & inovatif lainnya. Traktir kami kopi agar makin semangat berkarya! ☕</p>
         <a href="https://saweria.co/ztronik" target="_blank" class="btn-saweria">
-            💛 Support via Saweria
+            💛 Dukung via Saweria
         </a>
     </div>
 </div>
@@ -201,6 +227,9 @@
             urlTujuan = "https://ztronik.github.io/error"; 
         } else if (pilihan === "npwp") {
             urlTujuan = "https://ztronik.github.io/npwp"; 
+        } else if (pilihan === "poin-member") {
+            // Silakan ganti link di bawah ini dengan link web Poin Member Anda nantinya
+            urlTujuan = "https://ztronik.github.io/trialpoin"; 
         }
 
         if (urlTujuan !== "") {
@@ -210,7 +239,4 @@
 </script>
 
 </body>
-
 </html>
-
-
