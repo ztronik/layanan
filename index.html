@@ -7,7 +7,6 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Latar belakang gradasi hijau yang lembut dan modern */
             background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%);
             display: flex;
             flex-direction: column;
@@ -23,12 +22,11 @@
             background-color: #ffffff;
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15); /* Bayangan dengan hint hijau */
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15);
             text-align: center;
             width: 100%;
             max-width: 450px;
             
-            /* Efek Pop-up saat halaman dimuat */
             opacity: 0;
             transform: translateY(30px) scale(0.9);
             animation: popUpEffect 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
@@ -42,7 +40,7 @@
         }
         
         h1 span {
-            color: #059669; /* Hijau zamrud untuk teks highlight */
+            color: #059669;
         }
         
         p {
@@ -89,7 +87,7 @@
             display: none;
             width: 100%;
             padding: 14px;
-            background-color: #059669; /* Hijau utama untuk tombol */
+            background-color: #059669;
             color: white;
             border: none;
             border-radius: 8px;
@@ -101,19 +99,17 @@
         }
         
         .btn-masuk:hover {
-            background-color: #047857; /* Hijau lebih gelap saat di-hover */
+            background-color: #047857;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3);
         }
         
-        /* Pembatas / Garis */
         .divider {
             height: 1px;
             background-color: #e5e7eb;
             margin: 30px 0;
         }
 
-        /* Bagian Saweria */
         .saweria-box p {
             font-size: 14px;
             color: #555;
@@ -121,7 +117,10 @@
         }
         
         .btn-saweria {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             width: 100%;
             padding: 12px;
             background-color: #E2B02A; 
@@ -133,6 +132,13 @@
             transition: all 0.3s ease;
             box-sizing: border-box;
         }
+
+        .btn-saweria img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            border-radius: 3px;
+        }
         
         .btn-saweria:hover {
             background-color: #c79a24;
@@ -140,15 +146,13 @@
             box-shadow: 0 5px 15px rgba(226, 176, 42, 0.3);
         }
 
-        /* Copyright dalam Bahasa Inggris */
         .copyright {
             margin-top: 25px;
-            color: #065f46; /* Hijau gelap agar menyatu dengan background */
+            color: #065f46;
             font-size: 13px;
             font-weight: 500;
         }
 
-        /* Definisi Animasi Pop-up Container */
         @keyframes popUpEffect {
             to { 
                 opacity: 1; 
@@ -156,7 +160,6 @@
             }
         }
 
-        /* Definisi Animasi Tombol Muncul */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -168,7 +171,6 @@
 <div class="container">
     <h1>Solusi Praktis Bisnis Anda<br><span>Z-TRONIK</span></h1>
     
-    <!-- Teks deskripsi dirombak agar lebih menjual dan profesional -->
     <p>Hemat waktu dan tenaga! Kami menghadirkan <strong>Template Instan Siap Pakai</strong> (cukup isi form, langsung unduh) serta <strong>Web Pendukung Usaha</strong> untuk mendongkrak profesionalitas bisnis Anda. Silakan pilih layanan unggulan kami di bawah ini:</p>
 
     <select id="menuPilihan" onchange="cekPilihan()">
@@ -184,10 +186,10 @@
         <!-- Kategori 2: Web Pendukung Usaha -->
         <optgroup label="🚀 Web Pendukung Usaha">
             <option value="poin-member">Poin Member</option>
+            <option value="stampel-member">Stampel Member</option>
         </optgroup>
     </select>
 
-    <!-- Tulisan tombol diubah agar lebih mengajak bertindak (Call to Action) -->
     <button id="tombolMasuk" class="btn-masuk" onclick="redirectKeLink()">
         🚀 Mulai Gunakan Sekarang
     </button>
@@ -197,7 +199,8 @@
     <div class="saweria-box">
         <p>Terbantu dengan layanan kami? Dukung terus Z-TRONIK agar selalu bisa menghadirkan fitur gratis & inovatif lainnya. Traktir kami susu agar makin semangat berkarya! ☕</p>
         <a href="https://saweria.co/ztronik" target="_blank" class="btn-saweria">
-            💛 Dukung via Saweria
+            <img src="https://saweria.co/favicon.ico" alt="Saweria" />
+            Dukung via Saweria
         </a>
     </div>
 </div>
@@ -220,7 +223,6 @@
         const pilihan = document.getElementById("menuPilihan").value;
         let urlTujuan = "";
 
-        // GANTI LINK DI BAWAH INI DENGAN LINK WEB ANDA
         if (pilihan === "bpjs-kes") {
             urlTujuan = "https://ztronik.github.io/bpjskes"; 
         } else if (pilihan === "bpjs-ket") {
@@ -228,8 +230,10 @@
         } else if (pilihan === "npwp") {
             urlTujuan = "https://ztronik.github.io/npwp"; 
         } else if (pilihan === "poin-member") {
-            // Silakan ganti link di bawah ini dengan link web Poin Member Anda nantinya
             urlTujuan = "https://ztronik.github.io/trialpoin"; 
+        } else if (pilihan === "stampel-member") {
+            // Ganti link di bawah ini dengan link web Stampel Member Anda
+            urlTujuan = "https://ztronik.github.io/error"; 
         }
 
         if (urlTujuan !== "") {
