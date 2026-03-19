@@ -96,6 +96,7 @@
             background-color: #1a1a1a;
             appearance: none;
             -webkit-appearance: none;
+            -moz-appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2310b981' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 14px center;
@@ -319,7 +320,7 @@
 
         <!-- Kategori 2: Web Pendukung Usaha -->
         <optgroup label="Web Pendukung Usaha">
-            <option value="" disabled>Poin Member</option>
+            <option value="" class="poin-label">Poin Member</option>
             <option value="poin-member-admin">　　» Untuk Admin</option>
             <option value="poin-member-user">　　» Untuk Member</option>
             <option value="stampel-member">Stampel Member</option>
@@ -350,7 +351,7 @@
 <script>
             const infoData = {
         "bpjs-kes":  `Buat kartu <strong>BPJS Kesehatan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan barcode otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
-        "bpjs-ket":  `Buat kartu <strong>BPJS Ketenagakerjaan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
+        "bpjs-ket":  `Buat kartu <strong>BPJS Ketenagakerjaan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QE Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "npwp":      `Buat kartu <strong>NPWP</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "poin-member-admin": `Kelola program poin pelanggan toko Anda lewat <strong>Dashboard Admin Poin Member</strong>. Tambah atau kurangi poin member berdasarkan nominal belanja maupun produk khusus, tukar poin dengan hadiah, atur rasio poin, dan pantau seluruh riwayat transaksi — semuanya dalam satu tampilan yang ringkas. Mendukung scan QR untuk identifikasi member dengan cepat.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → login sebagai admin → scan QR / ketik ID member → kelola poin sesuai kebutuhan.`,
         "poin-member-user":  `Cek saldo poin dan tukarkan reward dengan mudah lewat <strong>Aplikasi Poin Member</strong>. Masukkan ID member atau scan QR kartu untuk melihat poin yang terkumpul, lalu pilih hadiah yang tersedia untuk ditukar langsung dari aplikasi.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → masukkan ID / scan QR → cek poin → pilih hadiah dan tukar.`
@@ -361,6 +362,14 @@
         const tombol = document.getElementById("tombolMasuk");
         const infoBox = document.getElementById("infoBox");
         const val = select.value;
+
+        // Blokir jika memilih label "Poin Member" (value kosong dari optgroup)
+        if (val === "" && select.selectedIndex > 0) {
+            select.selectedIndex = select.selectedIndex;
+            tombol.style.display = "none";
+            infoBox.style.display = "none";
+            return;
+        }
 
         if (val !== "") {
             tombol.style.display = "block";
