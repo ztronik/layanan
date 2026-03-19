@@ -82,6 +82,31 @@
             font-weight: 600;
         }
 
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .select-wrapper::after {
+            content: '';
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2310b981' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            pointer-events: none;
+        }
+        /* Clip kanan untuk sembunyikan native arrow/circle di mobile */
+        .select-wrapper select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            clip-path: inset(0 0 0 0);
+        }
         select {
             width: 100%;
             padding: 12px 36px 12px 14px;
@@ -90,16 +115,14 @@
             font-size: 15px;
             outline: none;
             transition: all 0.3s ease;
-            margin-bottom: 20px;
+            margin-bottom: 0;
             cursor: pointer;
             color: #e5e7eb;
             background-color: #1a1a1a;
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2310b981' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
+            background-image: none;
         }
 
         select:focus {
@@ -123,6 +146,7 @@
             color: #e5e7eb;
             font-style: normal;
             background-color: #1a1a1a;
+            opacity: 1 !important;
         }
 
         .btn-masuk {
@@ -288,8 +312,9 @@
             select {
                 font-size: 13px;
                 padding: 10px 32px 10px 8px;
+            }
+            .select-wrapper {
                 margin-bottom: 12px;
-                background-position: right 10px center;
             }
             .btn-masuk { font-size: 13.5px; padding: 12px; }
             .divider { margin: 18px 0; }
@@ -308,6 +333,7 @@
 
     <p>Semua yang bisnis Anda butuhkan, tersedia di satu tempat. <strong>Template Instan</strong> siap pakai dalam hitungan menit — cukup isi, langsung unduh. Tambah nilai lebih dengan <strong>Aplikasi Pendukung Usaha</strong> yang bikin bisnis Anda tampil lebih profesional di mata pelanggan:</p>
 
+    <div class="select-wrapper">
     <select id="menuPilihan" onchange="cekPilihan()">
         <option value="" disabled selected>-- Pilih Layanan yang Dibutuhkan --</option>
 
@@ -320,12 +346,13 @@
 
         <!-- Kategori 2: Web Pendukung Usaha -->
         <optgroup label="Web Pendukung Usaha">
-            <option value="" class="poin-label">Poin Member</option>
+            <option value="" disabled>Poin Member</option>
             <option value="poin-member-admin">　　» Untuk Admin</option>
             <option value="poin-member-user">　　» Untuk Member</option>
             <option value="stampel-member">Stampel Member</option>
         </optgroup>
     </select>
+    </div>
 
     <div class="info-box" id="infoBox"></div>
 
@@ -351,7 +378,7 @@
 <script>
             const infoData = {
         "bpjs-kes":  `Buat kartu <strong>BPJS Kesehatan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan barcode otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
-        "bpjs-ket":  `Buat kartu <strong>BPJS Ketenagakerjaan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QE Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
+        "bpjs-ket":  `Buat kartu <strong>BPJS Ketenagakerjaan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "npwp":      `Buat kartu <strong>NPWP</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "poin-member-admin": `Kelola program poin pelanggan toko Anda lewat <strong>Dashboard Admin Poin Member</strong>. Tambah atau kurangi poin member berdasarkan nominal belanja maupun produk khusus, tukar poin dengan hadiah, atur rasio poin, dan pantau seluruh riwayat transaksi — semuanya dalam satu tampilan yang ringkas. Mendukung scan QR untuk identifikasi member dengan cepat.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → login sebagai admin → scan QR / ketik ID member → kelola poin sesuai kebutuhan.`,
         "poin-member-user":  `Cek saldo poin dan tukarkan reward dengan mudah lewat <strong>Aplikasi Poin Member</strong>. Masukkan ID member atau scan QR kartu untuk melihat poin yang terkumpul, lalu pilih hadiah yang tersedia untuk ditukar langsung dari aplikasi.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → masukkan ID / scan QR → cek poin → pilih hadiah dan tukar.`
@@ -362,14 +389,6 @@
         const tombol = document.getElementById("tombolMasuk");
         const infoBox = document.getElementById("infoBox");
         const val = select.value;
-
-        // Blokir jika memilih label "Poin Member" (value kosong dari optgroup)
-        if (val === "" && select.selectedIndex > 0) {
-            select.selectedIndex = select.selectedIndex;
-            tombol.style.display = "none";
-            infoBox.style.display = "none";
-            return;
-        }
 
         if (val !== "") {
             tombol.style.display = "block";
