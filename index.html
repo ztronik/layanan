@@ -399,7 +399,9 @@
             <div class="cs-option is-label">Poin Member</div>
             <div class="cs-option is-sub" data-value="poin-member-admin" onclick="pilihOpsi(this)">Untuk Admin</div>
             <div class="cs-option is-sub" data-value="poin-member-user" onclick="pilihOpsi(this)">Untuk Member</div>
-            <div class="cs-option" data-value="stampel-member" onclick="pilihOpsi(this)">Stampel Member</div>
+            <div class="cs-option is-label">Stampel Member</div>
+            <div class="cs-option is-sub" data-value="stampel-member-admin" onclick="pilihOpsi(this)">Untuk Admin</div>
+            <div class="cs-option is-sub" data-value="stampel-member-user" onclick="pilihOpsi(this)">Untuk Member</div>
         </div>
     </div>
 
@@ -432,7 +434,9 @@
         "bpjs-ket":          `Buat kartu <strong>BPJS Ketenagakerjaan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "npwp":              `Buat kartu <strong>NPWP</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "poin-member-admin": `Kelola program poin pelanggan toko Anda lewat <strong>Dashboard Admin Poin Member</strong>. Tambah atau kurangi poin member berdasarkan nominal belanja maupun produk khusus, tukar poin dengan hadiah, atur rasio poin, dan pantau seluruh riwayat transaksi — semuanya dalam satu tampilan yang ringkas. Mendukung scan QR untuk identifikasi member dengan cepat.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → login sebagai admin → scan QR / ketik ID member → kelola poin sesuai kebutuhan.`,
-        "poin-member-user":  `Cek saldo poin dan tukarkan reward dengan mudah lewat <strong>Aplikasi Poin Member</strong>. Masukkan ID member atau scan QR kartu untuk melihat poin yang terkumpul, lalu pilih hadiah yang tersedia untuk ditukar langsung dari aplikasi.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → masukkan ID / scan QR → cek poin → pilih hadiah dan tukar.`
+        "poin-member-user":  `Cek saldo poin dan tukarkan reward dengan mudah lewat <strong>Aplikasi Poin Member</strong>. Masukkan ID member atau scan QR kartu untuk melihat poin yang terkumpul, lalu pilih hadiah yang tersedia untuk ditukar langsung dari aplikasi.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → masukkan ID / scan QR → cek poin → pilih hadiah dan tukar.`,
+        "stampel-member-admin": `Kelola program stampel pelanggan toko Anda lewat <strong>Dashboard Admin Stampel Member</strong>. Berikan stampel setiap kali pelanggan bertransaksi, atur jumlah stampel untuk hadiah, dan pantau seluruh kartu stampel member — semuanya dalam satu tampilan yang ringkas.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → login sebagai admin → scan QR / ketik ID member → berikan stampel sesuai transaksi.`,
+        "stampel-member-user":  `Kumpulkan stampel dan tukarkan hadiah dengan mudah lewat <strong>Aplikasi Stampel Member</strong>. Masukkan ID member atau scan QR kartu untuk melihat stampel yang terkumpul, lalu tukarkan saat sudah penuh langsung dari aplikasi.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → masukkan ID / scan QR → lihat kartu stampel → tukar hadiah saat penuh.`
     };
 
     function toggleDropdown() {
@@ -473,9 +477,10 @@
         if (selectedValue === "bpjs-kes")          urlTujuan = "https://ztronik.github.io/bpjskes";
         else if (selectedValue === "bpjs-ket")     urlTujuan = "https://ztronik.github.io/bpjstk";
         else if (selectedValue === "npwp")         urlTujuan = "https://ztronik.github.io/npwp";
-        else if (selectedValue === "poin-member-user")  urlTujuan = "https://ztronik.github.io/trialpoinmember";
-        else if (selectedValue === "poin-member-admin") urlTujuan = "https://ztronik.github.io/trialpoinadmin";
-        else if (selectedValue === "stampel-member")    urlTujuan = "https://ztronik.github.io/error";
+        else if (selectedValue === "poin-member-user")        urlTujuan = "https://ztronik.github.io/trialpoinmember";
+        else if (selectedValue === "poin-member-admin")       urlTujuan = "https://ztronik.github.io/trialpoinadmin";
+        else if (selectedValue === "stampel-member-admin")    urlTujuan = "https://ztronik.github.io/trialstampadmin";
+        else if (selectedValue === "stampel-member-user")     urlTujuan = "https://ztronik.github.io/trialstampmember";
         if (urlTujuan) window.location.href = urlTujuan;
     }
 </script>
