@@ -533,6 +533,7 @@
             <div class="cs-option" data-value="bpjs-kes" onclick="pilihOpsi(this)">BPJS Kesehatan</div>
             <div class="cs-option" data-value="bpjs-ket" onclick="pilihOpsi(this)">BPJS Ketenagakerjaan</div>
             <div class="cs-option" data-value="npwp" onclick="pilihOpsi(this)">NPWP</div>
+            <div class="cs-option" data-value="code-studio" onclick="pilihOpsi(this)">Code Generator</div>
             <!-- Grup 2 -->
             <div class="cs-group-label">Web Pendukung Usaha</div>
             <div class="cs-option is-label">Kasir + Poin Member</div>
@@ -591,6 +592,7 @@
         "bpjs-kes":          `Buat kartu <strong>BPJS Kesehatan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan barcode otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "bpjs-ket":          `Buat kartu <strong>BPJS Ketenagakerjaan</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
         "npwp":              `Buat kartu <strong>NPWP</strong> digital dengan mudah! Cukup isi data diri, kartu langsung tampil secara real-time lengkap dengan QR Code otomatis. Tersedia pilihan unduh dalam format PNG, JPG, dan PDF. Tidak perlu daftar, langsung pakai.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Isi form data diri → kartu tampil di preview → pilih format unduh → klik unduh.`,
+        "code-studio":       `<strong>Barcode Generator</strong> adalah alat pembuat barcode berbasis web yang bisa digunakan langsung di browser — tanpa install, tanpa akun. Dukung berbagai format barcode populer seperti QR Code, Code 128, EAN, dan lainnya. Cocok untuk kebutuhan bisnis seperti label produk, inventaris, hingga tiket. Hasil barcode bisa langsung diunduh dalam format gambar.<span class="badge-gratis">✦ Gratis</span><strong>Cara pakai:</strong> Buka Code Generator → masukkan teks atau data → pilih format barcode → unduh hasilnya.`,
         "poin-member-admin": `Kelola program poin pelanggan toko Anda lewat <strong>Dashboard Admin Poin Member</strong>. Tambah atau kurangi poin member berdasarkan nominal belanja maupun produk khusus, tukar poin dengan hadiah, atur rasio poin, dan pantau seluruh riwayat transaksi — semuanya dalam satu tampilan yang ringkas. Mendukung scan QR untuk identifikasi member dengan cepat.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → login sebagai admin → scan QR / ketik ID member → kelola poin sesuai kebutuhan.`,
         "poin-member-user":  `Cek saldo poin dan tukarkan reward dengan mudah lewat <strong>Aplikasi Poin Member</strong>. Masukkan ID member atau scan QR kartu untuk melihat poin yang terkumpul, lalu pilih hadiah yang tersedia untuk ditukar langsung dari aplikasi.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → masukkan ID / scan QR → cek poin → pilih hadiah dan tukar.`,
         "stampel-member-admin": `Kelola program stampel pelanggan toko Anda lewat <strong>Dashboard Admin Stampel Member</strong>. Berikan stampel setiap kali pelanggan bertransaksi, atur jumlah stampel untuk hadiah, dan pantau seluruh kartu stampel member — semuanya dalam satu tampilan yang ringkas.<span class="badge-trial">⚡ Trial Tersedia — Lanjut ke Premium</span><strong>Cara pakai:</strong> Buka aplikasi → login sebagai admin → scan QR / ketik ID member → berikan stampel sesuai transaksi.`,
@@ -635,10 +637,11 @@
         if (selectedValue === "bpjs-kes")          urlTujuan = "https://ztronik.github.io/bpjskes";
         else if (selectedValue === "bpjs-ket")     urlTujuan = "https://ztronik.github.io/bpjstk";
         else if (selectedValue === "npwp")         urlTujuan = "https://ztronik.github.io/npwp";
+        else if (selectedValue === "code-studio")  urlTujuan = "https://ztronik.github.io/code";
         else if (selectedValue === "poin-member-user")        urlTujuan = "https://ztronik.github.io/trialpoinmember";
         else if (selectedValue === "poin-member-admin")       urlTujuan = "https://ztronik.github.io/trialpoinadmin";
-        else if (selectedValue === "stampel-member-admin")    urlTujuan = "https://ztronik.github.io/trialstampadmin";
-        else if (selectedValue === "stampel-member-user")     urlTujuan = "https://ztronik.github.io/trialstampmember";
+        else if (selectedValue === "stampel-member-admin")    urlTujuan = "https://ztronik.github.io/stampadmin";
+        else if (selectedValue === "stampel-member-user")     urlTujuan = "https://ztronik.github.io/stampmember";
         else if (selectedValue === "kasir-poin-admin")        urlTujuan = "https://ztronik.github.io/error";
         else if (selectedValue === "kasir-poin-user")         urlTujuan = "https://ztronik.github.io/error";
         else if (selectedValue === "air-minum")               urlTujuan = "https://ztronik.github.io/error";
